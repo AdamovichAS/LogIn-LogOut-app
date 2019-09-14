@@ -1,4 +1,4 @@
-package by.itacademy.jd2.tomcat;
+package by.itacademy.jd2.tomcat.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,7 +13,6 @@ public class LogOutServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         session.removeAttribute("user");
-        PrintWriter writer = resp.getWriter();
-        writer.write("<p><span style='color: blue;'>You are log out!</span></p>");
+        req.getRequestDispatcher("/logout.jsp").forward(req,resp);
     }
 }

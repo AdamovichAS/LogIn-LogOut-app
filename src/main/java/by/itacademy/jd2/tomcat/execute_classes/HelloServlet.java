@@ -1,4 +1,6 @@
-package by.itacademy.jd2.tomcat;
+package by.itacademy.jd2.tomcat.execute_classes;
+
+import by.itacademy.jd2.tomcat.User;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

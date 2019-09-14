@@ -6,9 +6,9 @@
 <body>
 <form action="${pageContext.request.contextPath}/login" method="POST">
     <label>username:</label>
-    <input type="text" name="name" value="" />
+    <input type="text" required placeholder="login" name="login"><br>
     <label>password:</label>
-    <input type="text" name="lastName" value="" />
+    <input type="password" required placeholder="password" name="password"><br><br>
     <input type="submit" name="submit" value="Login" />
 </form>
 </body>
