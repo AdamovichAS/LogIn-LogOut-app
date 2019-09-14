@@ -39,10 +39,10 @@
     </filter>
     <filter-mapping>
         <filter-name>filter</filter-name>
-        <url-pattern>/admin_menu</url-pattern>
+        <url-pattern>/admin_menu.jsp</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>filter</filter-name>
-        <url-pattern>/user_menu</url-pattern>
+        <url-pattern>/user_menu.jsp</url-pattern>
     </filter-mapping>
 </web-app>

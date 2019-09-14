@@ -13,6 +13,7 @@ public class LogOutServlet extends HttpServlet {
             if(cookie.getName().equals("login")){
                 cookie.setMaxAge(0);
                 resp.addCookie(cookie);
+                break;
             }
         }
         req.getSession().removeAttribute("login");
