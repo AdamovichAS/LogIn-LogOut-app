@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-
+    <%=request.getSession().getAttribute("role").toString() + request.getSession().getAttribute("login")%>
 </body>
 </html>

@@ -1,7 +1,7 @@
 package by.itacademy.jd2.tomcat.model;
 
 public class User {
-    private int cash;
+    private int money;
 
     private String login;
 
@@ -12,19 +12,19 @@ public class User {
     public User() {
     }
 
-    public User(String login, String password,int cash, ROLE role) {
-        this.cash = cash;
+    public User(String login, String password, int money, ROLE role) {
+        this.money = money;
         this.login = login;
         this.password = password;
         this.role = role;
     }
 
-    public int getCash() {
-        return cash;
+    public int getMoney() {
+        return money;
     }
 
-    public void setCash(int cash) {
-        this.cash = cash;
+    public void setMoney(int money) {
+        this.money = money;
     }
 
     public String getLogin() {

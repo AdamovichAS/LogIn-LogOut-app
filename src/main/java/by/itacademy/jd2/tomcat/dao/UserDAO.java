@@ -14,6 +14,9 @@ public enum UserDAO {
 
     UserDAO() {
         users = new HashMap<>();
+        users.put("a",new User("a","a",10,User.ROLE.ADMIN));
+        users.put("b",new User("b","b",10,User.ROLE.USER));
+        users.put("c",new User("c","v",10,User.ROLE.USER));
     }
 
 

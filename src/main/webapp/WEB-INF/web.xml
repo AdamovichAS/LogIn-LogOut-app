@@ -35,10 +35,14 @@
 
     <filter>
         <filter-name>filter</filter-name>
-        <filter-class>by.itacademy.jd2.tomcat.filters.NameFilter</filter-class>
+        <filter-class>by.itacademy.jd2.tomcat.filters.AuthFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>filter</filter-name>
-        <url-pattern>/hello.jsp</url-pattern>
+        <url-pattern>/admin_menu</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>filter</filter-name>
+        <url-pattern>/user_menu</url-pattern>
     </filter-mapping>
 </web-app>

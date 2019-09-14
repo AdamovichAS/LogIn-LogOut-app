@@ -12,7 +12,7 @@ import java.io.IOException;
 
 import static java.util.Objects.nonNull;
 
-public class NameFilter implements Filter {
+public class AuthFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
 
@@ -27,7 +27,7 @@ public class NameFilter implements Filter {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
             Cookie[] cookies = req.getCookies();
-            String cookieName = "loginCookie";
+            String cookieName = "login";
             int cookieIndex = -1;
             String cookieValue = null;
             for (int i = 0; i < cookies.length; i++) {
@@ -38,7 +38,7 @@ public class NameFilter implements Filter {
                 }
             }
             if (nonNull(cookieValue)) {
-                String[] loginPassword = cookieValue.split(",");
+                String[] loginPassword = cookieValue.split("/");
                 if(UserDAO.USERS_DATA.userIsExist(loginPassword[0],loginPassword[1])) {
                     User user = UserDAO.USERS_DATA.getUserByLogin(cookieValue);
                     session.setAttribute("login", user.getLogin());
