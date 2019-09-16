@@ -23,7 +23,7 @@ public class AuthFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse res = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
-        if (nonNull(session.getAttribute("login")) && nonNull(session.getAttribute("password"))) {
+        if (nonNull(session.getAttribute("login")) && nonNull(session.getAttribute("role"))) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
             Cookie[] cookies = req.getCookies();
@@ -40,47 +40,24 @@ public class AuthFilter implements Filter {
             if (nonNull(cookieValue)) {
                 String[] loginPassword = cookieValue.split("/");
                 if(UserDAO.USERS_DATA.userIsExist(loginPassword[0],loginPassword[1])) {
-                    User user = UserDAO.USERS_DATA.getUserByLogin(cookieValue);
+                    User user = UserDAO.USERS_DATA.getUserByLogin(loginPassword[0]);
                     session.setAttribute("login", user.getLogin());
-                    session.setAttribute("password", user.getPassword());
+             //       session.setAttribute("password", user.getPassword());
                     session.setAttribute("role", user.getRole());
                 }else {
                     cookies[cookieIndex].setMaxAge(0);
                     res.addCookie(cookies[cookieIndex]);
-                    req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, res);
+                    req.getRequestDispatcher("login.jsp").forward(req, res);
                 }
             } else {
-                req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, res);
+                req.getRequestDispatcher("login.jsp").forward(req, res);
             }
         }
-        /*String contextPath = req.getContextPath();
-        HttpSession session = req.getSession();
-        if(session.getAttribute("user")!=null){
-            filterChain.doFilter(servletRequest,servletResponse);
-
-        }else {
-            res.sendRedirect(contextPath + "/login.jsp");
-        }*/
 
     }
 
-    private void moveToMenu(HttpServletRequest req, HttpServletResponse res, User.ROLE role)
-            throws ServletException, IOException {
 
 
-        if (role.equals(User.ROLE.ADMIN)) {
-
-            req.getRequestDispatcher("/WEB-INF/view/admin_menu.jsp").forward(req, res);
-
-        } else if (role.equals(User.ROLE.USER)) {
-
-            req.getRequestDispatcher("/WEB-INF/view/user_menu.jsp").forward(req, res);
-
-        } else {
-
-            req.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(req, res);
-        }
-    }
 
     @Override
     public void destroy() {

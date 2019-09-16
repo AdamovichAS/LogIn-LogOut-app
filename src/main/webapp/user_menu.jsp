@@ -13,6 +13,9 @@
 <body>
     <%="Hello, "  + request.getSession().getAttribute("login") + ", you  role is: " + request.getSession().getAttribute("role").toString()%>
     <br>
-    <a href="${pageContext.request.contextPath}/logout" target="_blank">logout</a><br>
+    <a href="${pageContext.request.contextPath}/logout" target="_blank">logout</a>
+    <br>
+    <a href="${pageContext.request.contextPath}/update.jsp" >update</a>
+    <br>
 </body>
 </html>

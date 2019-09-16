@@ -40,11 +40,22 @@ public enum UserDAO {
         return result;
     }
 
-    public void add(User user) {
+    public boolean add(User user) {
+        boolean result = false;
         if (!users.containsKey(user.getLogin())) {
             users.put(user.getLogin(), user);
+            result =true;
         }
+        return result;
+    }
 
+    public boolean updateUserInfo(User user){
+        boolean result = false;
+        if(nonNull(USERS_DATA.getUserByLogin(user.getLogin()))){
+            users.replace(user.getLogin(),user);
+            result =true;
+        }
+        return result;
     }
 
 }

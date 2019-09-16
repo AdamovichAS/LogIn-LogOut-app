@@ -15,7 +15,7 @@
     <label>username:</label>
     <input type="text" required placeholder="login" name="login"><br>
     <label>money:</label>
-    <input type="text" required placeholder="money" name="money"><br>
+    <input type="number" required placeholder="money" name="money"><br>
     <label>password:</label>
     <input type="password" required placeholder="password" name="password"><br>
     <label>password:</label>

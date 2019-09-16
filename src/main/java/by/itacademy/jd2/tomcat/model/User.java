@@ -51,6 +51,14 @@ public class User {
         this.role = role;
     }
 
+    @Override
+    public String toString() {
+        return login + "\n"+
+                password + "\n"+
+                money + "\n"+
+                role +"\n";
+    }
+
     public enum ROLE {
         USER, ADMIN, UNKNOWN
     }

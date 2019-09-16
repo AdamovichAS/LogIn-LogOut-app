@@ -17,7 +17,7 @@ public class LoginServlet extends HttpServlet {
             User user = UserDAO.USERS_DATA.getUserByLogin(login);
             HttpSession session = request.getSession();
             session.setAttribute("login", login);
-            session.setAttribute("password", password);  ///убрать
+     //       session.setAttribute("password", password);  ///убрать
             session.setAttribute("role", user.getRole());
             Cookie cookieLogin = new Cookie("login", login + "/" + password);
             response.addCookie(cookieLogin);
