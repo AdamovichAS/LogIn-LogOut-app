@@ -19,6 +19,6 @@ public class LogOutServlet extends HttpServlet {
         req.getSession().removeAttribute("login");
         req.getSession().removeAttribute("password");
         req.getSession().removeAttribute("role");
-        req.getRequestDispatcher("/WEB-INF/view/logout.jsp").forward(req, resp);
+        resp.sendRedirect("http://localhost:8080/tomcat/logout.jsp");
     }
 }

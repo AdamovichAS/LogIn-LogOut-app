@@ -11,6 +11,6 @@
     <title>Title</title>
 </head>
 <body>
-<tb>You are log out! <a href="${pageContext.request.contextPath}/WEB-INF/view/index.jsp" >Main page</a></tb>
+You are log out! <a href="${pageContext.request.contextPath}/index.jsp" >Main page</a>
 </body>
 </html>

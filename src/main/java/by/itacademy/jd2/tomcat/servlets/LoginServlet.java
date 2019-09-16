@@ -17,24 +17,25 @@ public class LoginServlet extends HttpServlet {
             User user = UserDAO.USERS_DATA.getUserByLogin(login);
             HttpSession session = request.getSession();
             session.setAttribute("login", login);
-            session.setAttribute("password", password);
+            session.setAttribute("password", password);  ///убрать
             session.setAttribute("role", user.getRole());
             Cookie cookieLogin = new Cookie("login", login + "/" + password);
             response.addCookie(cookieLogin);
             userAdminRedirect(user.getRole(), request, response);
         }
+        request.getRequestDispatcher("wrong_login.jsp").forward(request, response);
     }
 
     private void userAdminRedirect(User.ROLE role, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         switch (role) {
             case USER:
-                request.getRequestDispatcher("/WEB-INF/view/user_menu.jsp").forward(request, response);
+                request.getRequestDispatcher("user_menu.jsp").forward(request, response);
                 break;
             case ADMIN:
-                request.getRequestDispatcher("/WEB-INF/view/admin_menu.jsp").forward(request, response);
+                request.getRequestDispatcher("admin_menu.jsp").forward(request, response);
                 break;
             default:
-                request.getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
+                request.getRequestDispatcher("login.jsp").forward(request, response);
                 break;
         }
     }

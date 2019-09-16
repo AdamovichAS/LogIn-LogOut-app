@@ -11,6 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-    <%=request.getSession().getAttribute("role").toString() + request.getSession().getAttribute("login")%>
+    <%="Hello, "  + request.getSession().getAttribute("login") + ", you  role is: " + request.getSession().getAttribute("role").toString()%>
+    <br>
+    <a href="${pageContext.request.contextPath}/logout" target="_blank">logout</a><br>
 </body>
 </html>
